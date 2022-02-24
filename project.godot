@@ -10,8 +10,8 @@ config_version=4
 
 [application]
 
-config/name="Hungry-house"
-run/main_scene="res://World.tscn"
+config/name="Every room a Mouth"
+run/main_scene="res://Game.tscn"
 config/icon="res://icon.png"
 
 [display]
