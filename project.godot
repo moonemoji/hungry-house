@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-config/name="Every room a Mouth"
+config/name="Every Room A Mouth"
 run/main_scene="res://Game.tscn"
 config/icon="res://icon.png"
 
