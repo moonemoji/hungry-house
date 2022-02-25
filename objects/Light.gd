@@ -36,7 +36,7 @@ func SetNewTarget():
 	duration = rng.randf_range(FlickerDurationMin, FlickerDurationMax);
 	currentEnergy = targetEnergy;
 	targetEnergy = rng.randf_range(FlickerFloor, FlickerCeil);
-	print(targetEnergy);
+
 
 
 

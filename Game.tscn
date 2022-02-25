@@ -20,6 +20,7 @@ shader_param/u_color_tex = ExtResource( 3 )
 material = SubResource( 1 )
 margin_right = 320.0
 margin_bottom = 180.0
+stretch = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -28,6 +29,7 @@ __meta__ = {
 size = Vector2( 320, 180 )
 handle_input_locally = false
 hdr = false
+usage = 0
 render_target_update_mode = 3
 
 [node name="World" parent="ViewportContainer/Viewport" instance=ExtResource( 4 )]

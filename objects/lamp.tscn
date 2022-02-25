@@ -7,7 +7,7 @@
 texture = ExtResource( 1 )
 shadow_enabled = true
 shadow_color = Color( 1, 1, 1, 0 )
-shadow_gradient_length = 20.0
+shadow_gradient_length = 10.0
 shadow_filter = 3
 shadow_filter_smooth = 11.1
 script = ExtResource( 2 )

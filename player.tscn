@@ -1,22 +1,84 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://assets/sprites/player_TEMP.png" type="Texture" id=1]
-[ext_resource path="res://assets/sprites/player_TEMP_normals.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/PLAYER/PLAYER_WALK-Sheet.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/PLAYER/PLAYER_WALK_normal-Sheet.png" type="Texture" id=2]
+[ext_resource path="res://PlayerController.gd" type="Script" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 12.0
 
+[sub_resource type="Animation" id=5]
+resource_name = "Idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Walk"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 2 ]
+}
+
 [sub_resource type="OccluderPolygon2D" id=2]
-polygon = PoolVector2Array( -5, -9, -15, -4, -15, 4, -5, 9, 5, 9, 15, 4, 15, -4, 5, -9 )
+polygon = PoolVector2Array( -1, -17, -11, -8, -11, 4, -1, 16, 3, 16, 9, 5, 9, -8, 2, -17 )
 
 [node name="Player" type="KinematicBody2D"]
+script = ExtResource( 3 )
+Speed = 40
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="ColShape" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource( 2 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Idle = SubResource( 5 )
+anims/RESET = SubResource( 3 )
+anims/Walk = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 1, 0 )
+scale = Vector2( 0.65, 0.65 )
 texture = ExtResource( 1 )
 normal_map = ExtResource( 2 )
+hframes = 3
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite"]
+position = Vector2( -1.53846, 0 )
+scale = Vector2( 1.53846, 1.53846 )
+occluder = SubResource( 2 )
